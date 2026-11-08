@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Şifre Oluşturucu</title>
+  <meta name="description" content="Güçlü ve rastgele şifreler oluştur. Her şey tarayıcında olur, hiçbir şey kaydedilmez.">
+  <meta name="keywords" content="şifre oluşturucu, parola üretici, rastgele şifre, password generator">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="card">
+    <div class="lang-switch" role="group" aria-label="Language / Dil">
+      <button type="button" class="lang-btn" data-lang="tr">TR</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <header class="brand">
+      <img src="images/logo.svg" alt="" width="56" height="56">
+      <h1 data-i18n="title">Şifre Oluşturucu</h1>
+      <p class="subtitle" data-i18n="subtitle"></p>
+    </header>
+
+    <div class="output">
+      <output id="password" class="password" aria-live="polite"></output>
+      <div class="actions">
+        <button type="button" id="copy-btn" class="primary" data-i18n="copy">Kopyala</button>
+        <button type="button" id="regen-btn" class="secondary" data-i18n="regen">Yenile</button>
+      </div>
+    </div>
+
+    <div class="strength" aria-live="polite">
+      <div class="bars" id="strength-bars"><span></span><span></span><span></span><span></span></div>
+      <span id="strength-label" class="strength-label"></span>
+    </div>
+
+    <form id="options" class="options" onsubmit="return false">
+      <div class="length-row">
+        <label for="length" data-i18n="length">Uzunluk</label>
+        <output id="length-value" for="length">16</output>
+      </div>
+      <input type="range" id="length" min="4" max="64" value="16">
+
+      <fieldset>
+        <legend class="sr-only" data-i18n="optionsLegend">Karakter türleri</legend>
+        <label class="check"><input type="checkbox" id="opt-upper" checked> <span data-i18n="upper">Büyük harfler (A-Z)</span></label>
+        <label class="check"><input type="checkbox" id="opt-lower" checked> <span data-i18n="lower">Küçük harfler (a-z)</span></label>
+        <label class="check"><input type="checkbox" id="opt-digits" checked> <span data-i18n="digits">Rakamlar (0-9)</span></label>
+        <label class="check"><input type="checkbox" id="opt-symbols"> <span data-i18n="symbols">Özel karakterler (!@#$…)</span></label>
+        <label class="check"><input type="checkbox" id="opt-ambiguous"> <span data-i18n="ambiguous">Benzer karakterleri çıkar (0 O 1 l I)</span></label>
+      </fieldset>
+      <p id="error" class="error" role="alert" hidden></p>
+    </form>
+
+    <section class="about">
+      <details>
+        <summary data-i18n="secureTitle">Şifre nasıl oluşturuluyor?</summary>
+        <p data-i18n="secureBody"></p>
+      </details>
+      <details>
+        <summary data-i18n="tipsTitle">İyi şifre için ipuçları</summary>
+        <ul>
+          <li data-i18n="tip1"></li>
+          <li data-i18n="tip2"></li>
+          <li data-i18n="tip3"></li>
+        </ul>
+      </details>
+    </section>
+
+    <p class="disclaimer" data-i18n="disclaimer"></p>
+  </main>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
